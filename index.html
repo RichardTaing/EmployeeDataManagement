@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!-- Firebase References -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+  <title>Employee Data Management</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="“display-4”">Employee Data Management</h1>
+      <p class="“lead”">
+        A Comprehensive Directory of Employee Billable Hours
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">Current Employees</div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Employee Name</th>
+              <th scope="col">Role</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">Months Worked</th>
+              <th scope="col">Monthly Rate ($)</th>
+              <th scope="col">Total Billed ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">Add Employee</div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="employeeName">Employee Name</label>
+            <input type="name" class="form-control" id="name-input" aria-describedby="emailHelp" placeholder="Name" />
+          </div>
+          <div class="form-group">
+            <label for="role">Role</label>
+            <input type="role" class="form-control" id="role-input" placeholder="Role" />
+          </div>
+          <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input type="startDate" class="form-control" id="startDate-input" placeholder="Date" />
+          </div>
+          <div class="form-group">
+            <label for="monthlyRate">Monthly Rate</label>
+            <input type="monthlyRate" class="form-control" id="monthlyrate-input" placeholder="Rate" />
+          </div>
+          <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+          <button id="update" type="update" class="btn btn-primary">Update</button>
+          <button id="delete" type="delete" class="btn btn-primary">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="../17-TimeSheet/Employee.js"></script>
+</body>
+
+</html>
