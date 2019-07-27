@@ -64,16 +64,16 @@ database.ref().on(
     console.log(sv.startDate);
     console.log(sv.monthlyRate);
 
-    // console.log(childSnapshot.val().employeeName);
-    // console.log(childSnapshot.val().role);
-    // console.log(childSnapshot.val().startDate);
-    // console.log(childSnapshot.val().monthlyRate);
+    function monthsWorked() {
+      var convertedDate = sv.startDate;
+      convertedDate.diff(moment(), "days");
+      console.log(convertedDate.diff(moment(), "days"));
+    }
 
     // fucntion to append data in a table
-
     // Change the HTML to reflect
     $("#employeelist").append(
-    "<tr><td class='name'>" + sv.employeeName + "</td><td class='role''>" + sv.role + "</td><td class='startdate''>" + sv.startDate + "</td><td class='monthsworked''>" + "monthsworked" + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='totalbilled''>" + "totalbilled" + "</td></tr>"
+    "<tr><td class='name'>" + sv.employeeName + "</td><td class='role''>" + sv.role + "</td><td class='startdate''>" + sv.startDate + "</td><td class='monthsworked''>" + monthsWorked() + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='totalbilled''>" + "totalbilled" + "</td></tr>"
     );
 
     // $("#name-input").text(sv.employeeName);
