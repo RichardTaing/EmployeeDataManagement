@@ -62,10 +62,10 @@ database.ref().on(
     console.log(sv.startDate);
     console.log(sv.monthlyRate);
 
-    console.log(childSnapshot.val().employeeName);
-    console.log(childSnapshot.val().role);
-    console.log(childSnapshot.val().startDate);
-    console.log(childSnapshot.val().monthlyRate);
+    // console.log(childSnapshot.val().employeeName);
+    // console.log(childSnapshot.val().role);
+    // console.log(childSnapshot.val().startDate);
+    // console.log(childSnapshot.val().monthlyRate);
 
     // fucntion to append data in a table
 
@@ -88,8 +88,8 @@ dataRef
   .limitToLast(1)
   .on("child_added", function(snapshot) {
     // Change the HTML to reflect
-    $("#name-input").text(snapshot.val().name);
-    $("#role-input").text(snapshot.val().email);
-    $("#startDate-input").text(snapshot.val().age);
-    $("#monthlyrate-input").text(snapshot.val().comment);
+    $("#name-input").text(sv.employeeName);
+    $("#role-input").text(sv.role);
+    $("#startDate-input").text(sv.startDate);
+    $("#monthlyrate-input").text(sv.monthlyRate);
   });
