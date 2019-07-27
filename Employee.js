@@ -40,6 +40,8 @@ $("#submit").on("click", function(event) {
     .trim();
 
   // Code for "Setting values in the database"
+  database.ref().set({})
+
   database.ref().push({
     employeeName: employeeName,
     role: role,
@@ -54,7 +56,7 @@ database.ref().on(
   "child_added",
   function(childSnapshot) {
     // storing the snapshot.val() in a variable for convenience
-    var sv = snapshot.val();
+    var sv = childSnapshot.val();
 
     // Console.loging the last user's data
     console.log(sv.employeeName);
@@ -70,10 +72,14 @@ database.ref().on(
     // fucntion to append data in a table
 
     // Change the HTML to reflect
-    $("#name-input").text(sv.employeeName);
-    $("#role-input").text(sv.role);
-    $("#startDate-input").text(sv.startDate);
-    $("#monthlyrate-input").text(sv.monthlyRate);
+    $("#employeelist").append(
+    "<tr><td class='name'>" + sv.employeeName + "</td><td class='role''>" + sv.role + "</td><td class='startdate''>" + sv.startDate + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td></tr>"
+    );
+
+    // $("#name-input").text(sv.employeeName);
+    // $("#role-input").text(sv.role);
+    // $("#startDate-input").text(sv.startDate);
+    // $("#monthlyrate-input").text(sv.monthlyRate);
 
     // Handle the errors
   },
@@ -82,14 +88,15 @@ database.ref().on(
   }
 );
 
-dataRef
-  .ref()
-  .orderByChild("dateAdded")
-  .limitToLast(1)
-  .on("child_added", function(snapshot) {
-    // Change the HTML to reflect
-    $("#name-input").text(sv.employeeName);
-    $("#role-input").text(sv.role);
-    $("#startDate-input").text(sv.startDate);
-    $("#monthlyrate-input").text(sv.monthlyRate);
-  });
+// database
+//   .ref()
+//   .orderByChild("dateAdded")
+//   .limitToLast(1)
+//   .on("child_added", function(childSnapshot) {
+//     var sv = childSnapshot.val();
+//     // Change the HTML to reflect
+//     $("#name-input").text(sv.employeeName);
+//     $("#role-input").text(sv.role);
+//     $("#startDate-input").text(sv.startDate);
+//     $("#monthlyrate-input").text(sv.monthlyRate);
+//   });
