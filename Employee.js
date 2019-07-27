@@ -73,7 +73,7 @@ database.ref().on(
 
     // Change the HTML to reflect
     $("#employeelist").append(
-    "<tr><td class='name'>" + sv.employeeName + "</td><td class='role''>" + sv.role + "</td><td class='startdate''>" + sv.startDate + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td></tr>"
+    "<tr><td class='name'>" + sv.employeeName + "</td><td class='role''>" + sv.role + "</td><td class='startdate''>" + sv.startDate + "</td><td class='monthsworked''>" + "monthsworked" + "</td><td class='monthlyrate''>" + sv.monthlyRate + "</td><td class='totalbilled''>" + "totalbilled" + "</td></tr>"
     );
 
     // $("#name-input").text(sv.employeeName);
