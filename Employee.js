@@ -44,14 +44,15 @@ $("#submit").on("click", function(event) {
     employeeName: employeeName,
     role: role,
     startDate: startDate,
-    monthlyRate: monthlyRate
+    monthlyRate: monthlyRate,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
 
 // Firebase watcher .on("child_added"
 database.ref().on(
   "child_added",
-  function(snapshot) {
+  function(childSnapshot) {
     // storing the snapshot.val() in a variable for convenience
     var sv = snapshot.val();
 
@@ -60,6 +61,11 @@ database.ref().on(
     console.log(sv.role);
     console.log(sv.startDate);
     console.log(sv.monthlyRate);
+
+    console.log(childSnapshot.val().employeeName);
+    console.log(childSnapshot.val().role);
+    console.log(childSnapshot.val().startDate);
+    console.log(childSnapshot.val().monthlyRate);
 
     // fucntion to append data in a table
 
@@ -75,3 +81,15 @@ database.ref().on(
     console.log("Errors handled: " + errorObject.code);
   }
 );
+
+dataRef
+  .ref()
+  .orderByChild("dateAdded")
+  .limitToLast(1)
+  .on("child_added", function(snapshot) {
+    // Change the HTML to reflect
+    $("#name-input").text(snapshot.val().name);
+    $("#role-input").text(snapshot.val().email);
+    $("#startDate-input").text(snapshot.val().age);
+    $("#monthlyrate-input").text(snapshot.val().comment);
+  });
